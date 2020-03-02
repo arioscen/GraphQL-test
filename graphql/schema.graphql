@@ -33,3 +33,11 @@ type Comment {
     reply: String!
     post: Post! @belongsTo
 }
+
+type Mutation {
+    createUser(
+        name: String!,
+        email: String! @rules(apply: ["email", "unique:users"]),
+        password: String! @bcrypt
+    ): User! @create
+}
