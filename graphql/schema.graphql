@@ -36,8 +36,8 @@ type Comment {
 
 type Mutation {
     createUser(
-        name: String!,
-        email: String! @rules(apply: ["email", "unique:users"]),
+        name: String!
+        email: String! @rules(apply: ["email", "unique:users"])
         password: String! @bcrypt
     ): User! @create
     updateUser(
@@ -46,4 +46,5 @@ type Mutation {
         email: String
         password: String @bcrypt
     ): User @update @updateUserValidation
+    deleteUser(id: ID!): User @delete
 }
