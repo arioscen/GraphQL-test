@@ -40,4 +40,10 @@ type Mutation {
         email: String! @rules(apply: ["email", "unique:users"]),
         password: String! @bcrypt
     ): User! @create
+    updateUser(
+        id: ID
+        name: String
+        email: String
+        password: String @bcrypt
+    ): User @update @updateUserValidation
 }
